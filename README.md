@@ -37,10 +37,3 @@ The website consists of the following key pages and assets:
 - **Git & GitHub**: Version control system and remote repository hosting.
 
 ---
-
-## 🚀 Getting Started
-To view or work on this repository locally:
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/OnkarabileSkay/NeverTo-Late-website.git](https://github.com/OnkarabileSkay/NeverTo-Late-website.git)
