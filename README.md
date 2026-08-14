@@ -6,7 +6,7 @@ Welcome to the official repository for the **NeverTo Late** clothing brand websi
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 - [Project Overview](#project-overview)
 - [Website Structure](#website-structure)
 - [Technologies Used](#technologies-used)
@@ -15,12 +15,12 @@ Welcome to the official repository for the **NeverTo Late** clothing brand websi
 
 ---
 
-## 🏷️ Project Overview
+## Project Overview
 The **NeverTo Late** web platform serves as a modern digital storefront for streetwear apparel. The goal of this project is to deliver an accessible, user-friendly, and structured multi-page layout built cleanly using foundational web development techniques.
 
 ---
 
-## 📁 Website Structure
+## Website Structure
 The website consists of the following key pages and assets:
 
 - `index.html`: The home page featuring key promotional sections and hero banners.
@@ -32,8 +32,15 @@ The website consists of the following key pages and assets:
 
 ---
 
-## 🛠️ Technologies Used
+##  Languages Used
 - **HTML5**: Structured semantic web layouts and forms.
 - **Git & GitHub**: Version control system and remote repository hosting.
 
 ---
+
+## Getting Started
+To view or work on this repository locally:
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/OnkarabileSkay/NeverTo-Late-website.git](https://github.com/OnkarabileSkay/NeverTo-Late-website.git)
