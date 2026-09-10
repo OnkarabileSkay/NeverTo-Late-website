@@ -1,6 +1,6 @@
 # CHANGELOG
 
-All notable changes to the NeverToLate website project files across Part 2 are documented below.
+Changes for my NeverTo Late Webside
 
 ---
 
