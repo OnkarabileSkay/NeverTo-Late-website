@@ -66,7 +66,7 @@ The **NeverToLate** web platform delivers a clean, accessible, and highly struct
 ---
 
 ## Getting Started
-To view or work on this repository locally:
+To view my project locally:
 
 1. **Clone the repository:**
    ```bash
