@@ -1,0 +1,296 @@
+/*MAIN CSS TO CONTROL ALL THE FOOTER AND THE HEADER OF THE WEB PAGES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* Base Main Container Styling */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    text-align: center;
+}
+
+main p {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333333;
+    text-align: center;
+}
+
+/*HEADER & NAVIGATION ADJUSTMENTS*/
+header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e5e5e5;
+    padding: 20px 30px;
+    width: 100%;
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    /* Column 1: Left Logo | Column 2: Centered Title & Nav | Column 3: Right Logo */
+    grid-template-columns: 180px 1fr 180px;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo Holders */
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo.left {
+    justify-content: flex-start;
+}
+
+.header-logo.right {
+    justify-content: flex-end;
+}
+
+.header-logo img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Center Column (Title, Tagline, Navigation, Icons) */
+.header-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #111111;
+    margin: 0 0 4px 0;
+    font-family: Arial, sans-serif;
+}
+
+.header-center h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555555;
+    margin: 0 0 18px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* CREATING A SLIDING CURTAIN BUTTON HOVER & TOOLTIP POPUP */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    position: relative; /* Anchor for curtain and tooltip */
+    background-color: #000000; /* Initial black background */
+    border: 2px solid #000000;
+    padding: 0;
+    border-radius: 6px; /* <--- Updated to curve the corners */
+    cursor: pointer;
+    overflow: hidden; /* Clamps sliding curtain inside rounded bounds */
+    font-family: Arial, sans-serif;
+    z-index: 1;
+}
+
+/* THE SLIDING EFECT DURING THE STATE */
+nav button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%; /* Hidden initially */
+    height: 100%;
+    background-color: #ffffff; /* White curtain sliding across */
+    transition: width 0.35s ease-in-out; /* Smooth curtain slide animation */
+    z-index: 1; /* Sits behind text, above black background */
+}
+
+/* Button Link Text */
+nav button a {
+    position: relative;
+    z-index: 2; /* Keeps text on top of sliding curtain */
+    display: inline-block;
+    padding: 10px 24px;
+    color: #ffffff; /* Initial white text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    transition: color 0.35s ease-in-out; /* Text changes smoothly to black */
+}
+
+/* Slides white curtain from left to right */
+nav button:hover::before {
+    width: 100%; 
+}
+/* Changes text to black as curtain fills */
+nav button:hover a {
+    color: #000000; 
+}
+
+/* Tooltip Popup Box */
+nav button[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #222222;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-transform: none;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav button[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(2px);
+}
+
+/* Header Action Icons */
+.header-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-icons a {
+    color: #111111;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+/*Icons during hover*/
+.header-icons a:hover {
+    color: #0044cc;
+    transform: scale(1.15);
+}
+
+/*FOOTER STYLING*/
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+/*RESPONSIVE BREAKPOINTS FO ALL WEB PAGES*/
+
+/* --- Tablet Breakpoint (1024px) --- */
+@media screen and (max-width: 1024px) {
+    .header-container {
+        grid-template-columns: 130px 1fr 130px;
+        gap: 10px;
+    }
+
+    .header-logo img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .header-center h1 {
+        font-size: 1.8rem;
+    }
+
+    nav button a {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- Mobile Breakpoint (768px) --- */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-logo {
+        width: 100%;
+    }
+
+    .header-logo.left,
+    .header-logo.right {
+        justify-content: center;
+    }
+
+    .header-logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header-center h1 {
+        font-size: 1.6rem;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    nav button {
+        width: 100%;
+    }
+
+    nav button a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+    }
+
+    main {
+        padding: 0 10px 20px 10px;
+    }
+
+    main p {
+        font-size: 0.95rem;
+    }
+}

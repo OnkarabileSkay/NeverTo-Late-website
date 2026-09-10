@@ -3,42 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiries</title>
+    <title>Enquiries | NeverTo Late</title>
+    <!-- Linked Global Stylesheet (Applies to all pages) -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Linked Page-Specific Stylesheet (Enquiries page only) -->
+    <link rel="stylesheet" href="css/enquiries.css">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
     <header>
-         <!-- Creating a table that will push the logos on the right sides, old logo to the left side, new logo to the right side, keep the text in the middle -->
-        <table width="100%" border="0%">
-            <tr>
-                <!-- First Colom-->
-                <td align="left" width="20%">
-                <img src="_image/oldlogo.png" alt="Old Logo" width="200" height="200">
-                </td>
-                <!-- Second Colom-->
-                <td align="center" width="50%">
-                    <h1>NeverTo Late</h1>
-                    <h4><font face="cursive"> Wa Robala Otla Jangg</font></h4>
-                    <button><a href="index.html">Home</a></button> 
-                    <button><a href="about.html">About</a> </button>
-                    <button><a href="product.html">Products</a></button>
-                    <button><a href="contact.html">Contact</a></button>
-                </td>
-                <!-- Third colom-->
-                <td align="right" width="20%">
-                    <img src="_image/newlogo.png" alt="New Logo" width="200" height="200">
-                </td>
-            </tr>
-        </table>
-        <br>
+    <div class="header-container">
+        <!-- Left Column: Old Logo -->
+        <div class="header-logo left">
+            <img src="_image/oldlogo.png" alt="NeverToLate Old Logo">
+        </div>
+
+        <!-- Center Column: Main Header Content -->
+        <div class="header-center">
+            <h1>NEVERTO LATE</h1>
+            <h4>Wa Robala Otla Jangg</h4>
+            <nav>
+                <button><a href="about.html">ABOUT</a></button>
+                <button><a href="product.html">PRODUCTS</a></button>
+                <button><a href="index.html">HOME</a></button>
+                <button><a href="contact.html">CONTACT</a></button>
+            </nav>
+            <div class="header-icons">
+                <a href="#" title="Account"><i class="fa-solid fa-user"></i></a>
+                <a href="#" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="product.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+
+        <!-- Right Column: New Logo -->
+        <div class="header-logo right">
+            <img src="_image/newlogo.png" alt="NeverToLate New Logo">
+        </div>
+    </div>
     </header>
-    <!-- Main content of the web page-->
     <main>
-        <!-- Adding a enquirie form-->
-       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejtBO2yvCwj7J-o7VNDmjJXWtKuVqRgST1dOTFUZdriNGbNw/viewform?embedded=true" width="640" height="2242" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <section class="enquiry-container">
+            <h2>Submit an Enquiry</h2>
+            <p>Have questions regarding stock availability, custom orders, or shipping? Fill out the form below and our team will get back to you shortly.</p>
+
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your cell number">
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">Enquiry Type</label>
+                    <select id="topic" name="topic" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="order">Order Status & Tracking</option>
+                        <option value="stock">Stock & Restock Inquiries</option>
+                        <option value="custom">Custom Orders & Bulk Sales</option>
+                        <option value="other">General Query</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Write your enquiry details here..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Enquiry</button>
+            </form>
+        </section>
     </main>
-    <!-- Web page's footer-->
+
     <footer>
-        <p align="center">&copy; NeverToLate Apparel. All rights reserved.</p>
+        <p>&copy; NeverToLate Apparel. All rights reserved.</p>
     </footer>
+
 </body>
 </html>

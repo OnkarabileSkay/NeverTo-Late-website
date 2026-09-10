@@ -1,0 +1,106 @@
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.story-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.story-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.story-section p {
+    margin-bottom: 15px;
+    color: #444444;
+}
+
+.slogenStrong {
+    font-weight: bold;
+    color: #111111;
+    font-style: italic;
+}
+
+.about-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.about-media {
+    flex: 1;
+    max-width: 350px;
+}
+
+.about-media img {
+    width: 100%;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 1.6rem;
+    color: #111111;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.about-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 40px 0;
+}
+/* --- Video Section Styling --- */
+.video-section {
+    background-color: #f2f0f0f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px auto;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.video-title {
+    font-size: 1.5rem;
+    color: #111111;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.video-wrapper {
+    max-width: 400px; /* Controls the maximum width on desktop */
+    margin: 0 auto;   /* Centers the video wrapper */
+}
+
+.video-wrapper video {
+    width: 100%;
+    max-height: 400px; /* Ensures the height doesn't stretch past the screen view */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .about-row, .about-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .about-media {
+        max-width: 100%;
+    }
+}
