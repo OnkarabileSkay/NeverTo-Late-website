@@ -4,7 +4,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.5.0] - 2026-09-10
+## - 2026-09-10
 
 ### Added
 - **Global Stylesheet (`main.css`)**
@@ -18,7 +18,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.4.0] - 2026-09-10
+## - 2026-09-10
 
 ### Added
 - **Products Stylesheet (`product.css`)**
@@ -32,7 +32,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.3.0] - 2026-09-10
+## - 2026-09-10
 
 ### Added
 - **Products Page (`product.html`)**
@@ -47,7 +47,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.2.0] - 2026-09-10
+## - 2026-09-10
 
 ### Added
 - **Home Stylesheet (`index.css`)**
@@ -59,7 +59,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.1.0] - 2026-09-10
+## - 2026-09-10
 
 ### Added
 - **Home Page (`index.html`)**
@@ -71,7 +71,7 @@ Changes for my NeverTo Late Webside
 
 ---
 
-## [1.0.0] - 2026-09-10
+##  - 2026-09-10
 
 ### Added
 - **About Page (`about.html` & `about.css`)**
