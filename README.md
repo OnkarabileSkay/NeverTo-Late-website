@@ -70,4 +70,14 @@ To view my project locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/OnkarabileSkay/NeverTo-Late-website.git](https://github.com/OnkarabileSkay/NeverTo-Late-website.git)
+   git clone https://github.com/OnkarabileSkay/NeverTo-Late-website.git
+   ```
+---
+
+## Changelog
+A full, dated record of every change made during Part 2 development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
+
+---
+
+## References
+External resources, libraries, and tools used in this project (Font Awesome, Google Maps Embed API, and general web development references) are credited in [`References.md`](./References.md).
