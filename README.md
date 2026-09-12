@@ -75,7 +75,7 @@ To view my project locally:
 ---
 
 ## Changelog
-A full, dated record of every change made during Part 2 development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
+A full, dated record of every change made during the web side development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
 
 ---
 
