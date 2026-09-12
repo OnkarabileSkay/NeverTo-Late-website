@@ -90,3 +90,42 @@ Changes for my NeverToLate Website
   - Built an enquiry submission form with fields for full name, email, cell phone number, enquiry category dropdown, and message text area.
   - Standardized form inputs with active focus states (`border-color: #111111`) and background transitions.
   - Implemented a custom CSS pseudo-element hover animation (`::before` sliding overlay) for the primary submit button.
+
+### Removed
+- **`css/styleSheet.css`** — the original single stylesheet from early development, superseded by the six page-specific stylesheets above (`main.css`, `index.css`, `about.css`, `product.css`, `contact.css`, `enquiries.css`).
+
+### Changed
+- **`README.md`**
+  - Rewrote and expanded the README to match the new project structure: added a "Key Features" section, split "Technologies Used" into "Technologies & Languages Used" (now covering CSS, JavaScript, and Font Awesome alongside HTML5/Git), and documented the new `css/`, `_video/`, and `js/` folders under "Website Structure".
+
+---
+
+## 2026-09-11
+
+### Changed
+- **`css/about.css`**
+  - Added a header comment (`/* STYLE SHEET FOR ABOUT PAGE ONLY */`) to clarify the file's scope.
+- **`css/contact.css`**
+  - Added a header comment (`/* STYLE SHEET FOR CONTACT PAGE ONLY */`) to clarify the file's scope.
+- **`css/enquiries.css`**
+  - Added a header comment (`/* STYLE SHEET FOR ENQUIRIES PAGE ONLY */`) to clarify the file's scope.
+- **`css/index.css`**
+  - Added a header comment (`/* STYLE SHEET FOR HOME PAGE ONLY */`) to clarify the file's scope.
+- **`css/product.css`**
+  - Added a header comment (`/* STYLE SHEET FOR PRODUCT PAGE ONLY */`) to clarify the file's scope.
+  
+
+### Removed
+- **`Reference.pdf`** — deleted the reference to add more references for part 2
+
+---
+
+## 2026-09-12
+
+### Changed
+- **Code comments pass across all pages** — added explanatory HTML comments to `about.html`, `contact.html`, `enquiries.html`, `index.html`, and `product.html` for better readability and to make others to understand my code.
+- **`product.html`**
+  - Removed unwanted code that was no longer needed.
+
+### Added
+- **`.github/workflows/ci.yml`** — new GitHub Actions workflow ("HTML/CSS Check") that runs on every push and pull request to `main`, verifying the commit builds cleanly.
