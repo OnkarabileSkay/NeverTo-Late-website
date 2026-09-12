@@ -80,4 +80,4 @@ A full, dated record of every change made during the web side development — in
 ---
 
 ## References
-External resources, libraries, and tools used in this project (Font Awesome, Google Maps Embed API, and general web development references) are credited in [`References.md`](./References.md).
+External resources, libraries, and tools used in this project (Font Awesome, Google Maps Embed API, and general web development references) are credited in [`Reference.md`](./Reference.md).
