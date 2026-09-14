@@ -145,3 +145,11 @@ Changes for my NeverToLate Website
  - **main.css** — Widened the header-container from max-width: 1300px to max-width: 100% for full width of the web page.
  - Increased the header-logo img from 140px to 180px to make them a bit bigger and also to fit in the box.
 
+## 2026-09-15
+
+### Added
+- **Active Page Indicator (`main.css` & nav buttons)**
+  - Added a looping curtain animation (`@keyframes curtainLoop`, `@keyframes curtainTextLoop`) so the nav button for the current open page continuously cycles the white curtain open and closed, instead of only animating on hover.
+  - Added `.active` class styling (`nav button.active`) with a black border to mark the current page's button.
+  - Paused the loop animation on direct hover (`animation-play-state: paused`) so the active button still responds normally when a user hovers over it.
+  - Added `class="active"` to the corresponding nav button on `about.html`, `product.html`, `enquiries.html`, and `contact.html` so each web page highlights its own nav item.
