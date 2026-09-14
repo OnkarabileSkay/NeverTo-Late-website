@@ -183,13 +183,29 @@ nav button[data-tooltip]:hover::after {
     visibility: visible;
     transform: translateX(-50%) translateY(2px);
 }
+/* ACTIVE PAGE INDICATOR: curtain loops open/closed while this page is open */
 nav button.active {
-    background-color: #ffffff;
     border: 2px solid #000000;
 }
 
+@keyframes curtainLoop {
+    0%, 100% { width: 0%; }
+    50% { width: 100%; }
+}
+@keyframes curtainTextLoop {
+    0%, 100% { color: #ffffff; }
+    50% { color: #000000; }
+}
+nav button.active::before {
+    animation: curtainLoop 2.4s ease-in-out infinite;
+}
 nav button.active a {
-    color: #000000 !important;
+    animation: curtainTextLoop 2.4s ease-in-out infinite;
+}
+/* Pause the loop and hand control back to normal hover behaviour when hovered directly */
+nav button.active:hover::before,
+nav button.active:hover a {
+    animation-play-state: paused;
 }
 
 /* Header Action Icons */
