@@ -123,9 +123,25 @@ Changes for my NeverToLate Website
 ## 2026-09-12
 
 ### Changed
-- **Code comments pass across all pages** — added explanatory HTML comments to `about.html`, `contact.html`, `enquiries.html`, `index.html`, and `product.html` for better readability and to make others to understand my code.
+- **Code comments across all pages** — added explanatory HTML comments to `about.html`, `contact.html`, `enquiries.html`, `index.html`, and `product.html` for better readability and to make others to understand my code.
 - **`product.html`**
   - Removed unwanted code that was no longer needed.
 
 ### Added
 - **`.github/workflows/ci.yml`** — new GitHub Actions workflow ("HTML/CSS Check") that runs on every push and pull request to `main`, verifying the commit builds cleanly.
+
+---
+
+## 2026-09-14
+
+### Added
+- **Code comments across all pages** — added explanatory HTML comments to `about.css`, `contact.css`, `enquiries.css`, `index.css`, and `product.css` for better readability and to make others to understand my code.
+
+### Changed
+ - **Product Catalog Layout (`contact.html` & `contact.css`)**
+ - Replaced the (table) based layout (.contact-table, td cells) with a flexbox layout (.contact-row, .map-cell, .images-cell, .details-cell).
+ - Converted the (table,tr,td) structure to (div class="contact-row" , div class="map-cell")  to match the new flexbox CSS.
+ - Removed a duplicate (/header) closing tag.
+ - **main.css** — Widened the header-container from max-width: 1300px to max-width: 100% for full width of the web page.
+ - Increased the header-logo img from 140px to 180px to make them a bit bigger and also to fit in the box.
+
