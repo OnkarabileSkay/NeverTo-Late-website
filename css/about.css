@@ -1,10 +1,13 @@
 /* STYLE SHEET FOR ABOUT PAGE ONLY */
+
+/* Main content wrapper: centers the page content and keep its width */
 main {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Container for each "story" block on the About page */
 .story-section {
     background-color: #ffffff;
     padding: 30px;
@@ -13,23 +16,27 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Heading style for each story pharagraph */
 .story-title {
     font-size: 1.8rem;
     margin-bottom: 15px;
     color: #111111;
 }
 
+/* Styling the Paragraph for spacing and color */
 .story-section p {
     margin-bottom: 15px;
     color: #444444;
 }
 
+/* Bold  and italic text */
 .slogenStrong {
     font-weight: bold;
     color: #111111;
     font-style: italic;
 }
 
+/* Horizontal layout for image and text pairs*/
 .about-row {
     display: flex;
     align-items: center;
@@ -38,20 +45,24 @@ main {
     margin: 40px 0;
 }
 
+/* Container for the image/media side of an about-row */
 .about-media {
     flex: 1;
     max-width: 350px;
 }
 
+/* Ensures images inside .about-media scale to fill their container */
 .about-media img {
     width: 100%;
     display: block;
 }
 
+/* Container for the text side of an about-row */
 .about-text {
     flex: 1;
 }
 
+/* Style for the headings inside the text column of an about-row */
 .about-text h2 {
     font-size: 1.6rem;
     color: #111111;
@@ -59,12 +70,16 @@ main {
     text-transform: uppercase;
 }
 
+/* Thin horizontal divider line to separate about-row sections */
 .about-divider {
     border: none;
     border-top: 1px solid #e0e0e0;
     margin: 40px 0;
 }
+
 /* --- Video Section Styling --- */
+
+/* Container to style the video and its title */
 .video-section {
     background-color: #f2f0f0f7;
     padding: 20px;
@@ -74,6 +89,7 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Heading above the video */
 .video-title {
     font-size: 1.5rem;
     color: #111111;
@@ -81,20 +97,26 @@ main {
     text-transform: uppercase;
 }
 
+/* Wrapper to center the video */
 .video-wrapper {
-    max-width: 400px; /* Controls the maximum width on desktop */
-    margin: 0 auto;   /* Centers the video wrapper */
+    /* Controls the maximum width for  bigger screen device */
+    max-width: 400px;
+    /* Centers the video and loops it */ 
+    margin: 0 auto;   
 }
 
+/* Styling the <video> element for sizing, rounding and shadow */
 .video-wrapper video {
     width: 100%;
-    max-height: 400px; /* Ensures the height doesn't stretch past the screen view */
+    /* It makes the video a bit smaller, so it can fit on the screen without scrolling*/
+    max-height: 400px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: block;
 }
 
+/* Responsive adjustment, to out the images verticlal small screens */
 @media screen and (max-width: 768px) {
     .about-row, .about-row.reverse {
         flex-direction: column;

@@ -5,9 +5,7 @@ main {
     padding: 0 20px;
     width: 100%;
 }
-
-/* Filter Button Container */
-/* Filter Button Container (Aligned to Left) */
+/* Filter Button Container to Left) */
 .filter-container {
     display: flex;
     justify-content: flex-start;
@@ -53,7 +51,7 @@ main {
     color: #008800; /* Street Green */
 }
 
-/* --- Product Display Tables (Full Screen Width Grid Fix) --- */
+/* --- Product Display Tables  --- */
 .product-table {
     width: 100%;
     display: block; /* Overrides default table display behavior */

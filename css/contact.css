@@ -1,9 +1,11 @@
+/* Main content wrapper: centers the page content and caps its width */
 main {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px 40px 20px;
 }
 
+/* Centeres and uppercase the headings, of Our Store in section title */
 .store-heading {
     text-align: center;
     font-size: 1.8rem;
@@ -12,49 +14,58 @@ main {
     text-transform: uppercase;
 }
 
-.contact-table {
+/* Flex container to hold the map, images, and text side by side */
+.contact-row {
+    display: flex;
+    gap: 20px;
     width: 100%;
     background-color: #ffffff;
-    border-collapse: separate;
-    border-spacing: 20px;
     margin-bottom: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
 }
 
-.contact-table td {
-    vertical-align: top;
+/* Styling for each row that has div */
+.contact-row > div {
     padding: 10px;
 }
 
+/* Contain to size the map */
 .map-cell {
-    width: 45%;
+    flex: 0 1 45%;
 }
 
+/* Styling the container that holds the map */
 .map-cell iframe {
     width: 100%;
     height: 350px;
+    border: none;
     border-radius: 6px;
 }
 
+/* Styling and sizing the images of our store */
 .images-cell {
-    width: 35%;
+    flex: 0 1 35%;
     text-align: center;
 }
 
+/* Styling for images inside the images column */
 .images-cell img {
     max-width: 100%;
     border-radius: 6px;
     margin-bottom: 10px;
 }
 
+/* Styling text of our store info */
 .details-cell {
-    width: 20%;
+    flex: 0 1 20%;
     background-color: #f4f4f4;
     padding: 20px !important;
     border-radius: 6px;
 }
 
+/* Heading style inside details column, used for non-bold section labels */
 .details-cell h3 {
     font-size: 1rem;
     line-height: 1.6;
@@ -62,20 +73,24 @@ main {
     font-weight: normal;
 }
 
+/* Paragraph spacing inside the details column */
 .details-cell p {
     margin-bottom: 8px;
 }
 
+/* Responsive adjustment: makes the c small screens */
 @media screen and (max-width: 900px) {
-    .contact-table, 
-    .contact-table tbody, 
-    .contact-table tr, 
-    .contact-table td {
-        display: block;
-        width: 100% !important;
+    .contact-row {
+        flex-direction: column;
     }
-    
+
+    .map-cell,
+    .images-cell,
+    .details-cell {
+        flex: 1 1 100%;
+    }
+
     .map-cell iframe {
         height: 250px;
     }
-}
+}       

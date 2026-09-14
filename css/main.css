@@ -39,7 +39,7 @@ header {
 }
 
 .header-container {
-    max-width: 1300px;
+    max-width: 100%;
     margin: 0 auto;
     display: grid;
     /* Column 1: Left Logo | Column 2: Centered Title & Nav | Column 3: Right Logo */
@@ -61,10 +61,10 @@ header {
 .header-logo.right {
     justify-content: flex-end;
 }
-
+/* Sizing the Images in the header*/
 .header-logo img {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
     display: block;
 }
@@ -182,6 +182,14 @@ nav button[data-tooltip]:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(2px);
+}
+nav button.active {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+nav button.active a {
+    color: #000000 !important;
 }
 
 /* Header Action Icons */

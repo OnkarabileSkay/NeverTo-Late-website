@@ -1,5 +1,5 @@
 main {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px 40px 20px;
     text-align: center;
@@ -25,9 +25,8 @@ main p {
 
 main img[alt=" welcome store"] {
     max-width: 100%;
-    width: 400px;
+    width: 500px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     display: block;
 }
