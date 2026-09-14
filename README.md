@@ -13,7 +13,7 @@ Welcome to the official repository for the **NeverToLate** streetwear clothing b
 - [Technologies & Languages Used](#technologies--languages-used)
 - [Getting Started](#getting-started)
 - [Changelog](#changelog)
-- [Reference](#Reference)
+- [Reference](#reference)
 
 ---
 
