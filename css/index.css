@@ -1,3 +1,6 @@
+/* Stylesheet for Home Page(index.html)  only  */
+
+/* Main content wrapper: centers content and adds spacing around the page */
 main {
     max-width: 100%;
     margin: 0 auto;
@@ -5,6 +8,7 @@ main {
     text-align: center;
 }
 
+/* Styling for the full-width hero image at the top of the page */
 main img[alt="heroshoot"] {
     width: 100%;
     max-height: 500px;
@@ -14,6 +18,7 @@ main img[alt="heroshoot"] {
     display: block;
 }
 
+/* Styling for the body paragraphs, capped width for readability */
 main p {
     max-width: 900px;
     margin: 0 auto 30px auto;
@@ -23,6 +28,7 @@ main p {
     text-align: center;
 }
 
+/* Styling and sizing for the welcome store image */
 main img[alt=" welcome store"] {
     max-width: 100%;
     width: 500px;
@@ -31,6 +37,7 @@ main img[alt=" welcome store"] {
     display: block;
 }
 
+/* Responsive adjustment: reduces padding and font size on tablet and mobile screens */
 @media screen and (max-width: 768px) {
     main {
         padding: 0 10px 20px 10px;
