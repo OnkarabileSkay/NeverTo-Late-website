@@ -231,9 +231,15 @@ Changes for my NeverToLate Website
   - Paused the loop animation on direct hover (`animation-play-state: paused`) so the active button still responds normally when a user hovers over it.
   - Added `class="active"` to the corresponding nav button on `about.html`, `product.html`, `enquiries.html`, and `contact.html` so each web page highlights its own nav item.
 
+  ---
+
+  ## 2026-09-16
+
+  ### Added
+  - **Code comments across all css files** — added explanatory comments to `about.css`, `contact.css`, `enquiries.css`, `index.css`, `main.css` and `product.css` for better readability and to make others to understand my code.
 
 ## Changelog
-A full, dated record of every change made during the web side development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
+ A full, dated record of every change made during the web side development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
 
 # References
 
