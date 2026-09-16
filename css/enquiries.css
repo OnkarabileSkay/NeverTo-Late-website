@@ -1,9 +1,13 @@
+/* MAIN CONTENT WRAPPER*/
+   /*Centres the page content and caps its width so it stays readable on large screens. */
 main {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* ENQUIRY CARD*/
+   /*The white panel that holds the form, with rounded corners and a soft drop shadow. */
 .enquiry-container {
     background-color: #ffffff;
     padding: 35px;
@@ -12,6 +16,8 @@ main {
     margin-bottom: 40px;
 }
 
+/* CARD HEADING*/
+   /* Text title on top of the enquiry form. */
 .enquiry-container h2 {
     font-size: 1.8rem;
     color: #111111;
@@ -20,6 +26,7 @@ main {
     text-align: center;
 }
 
+/* Text inside the form. */
 .enquiry-container p {
     text-align: center;
     color: #666666;
@@ -27,11 +34,12 @@ main {
     font-size: 0.95rem;
 }
 
-/* Form Controls */
+/* Spacing the form. */
 .form-group {
     margin-bottom: 20px;
 }
 
+/* Bold uppercase labels displayed on their own line above each input. */
 .form-group label {
     display: block;
     font-weight: bold;
@@ -42,6 +50,7 @@ main {
     letter-spacing: 0.5px;
 }
 
+/* Modifying the text that the user will input. */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
@@ -57,6 +66,7 @@ main {
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Adicating which part of the form the user is currently on */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -65,7 +75,7 @@ main {
     background-color: #ffffff;
 }
 
-/* Submit Button Animation */
+/* Submit button*/
 .submit-btn {
     width: 100%;
     position: relative;
@@ -84,6 +94,7 @@ main {
     border-radius: 0;
 }
 
+/* Animation haover for the submit button */
 .submit-btn::before {
     content: "";
     position: absolute;
@@ -104,6 +115,8 @@ main {
     color: #111111;
 }
 
+/* RESPONSIVE: TABLET AND MOBILE
+   Reduces the card padding below 768px to leave more room for the form. */
 @media screen and (max-width: 768px) {
     .enquiry-container {
         padding: 20px;
