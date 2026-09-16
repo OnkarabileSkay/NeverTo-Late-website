@@ -33,6 +33,18 @@ The **NeverToLate** web platform delivers a clean, accessible, and highly struct
 
 ---
 
+## Project Timeline
+
+| Date | Phase | Description |
+|---|---|---|
+| **27 July – 30 July** | **Phase 1:** Assignment planning | • Decided on what languages to use<br>• Defined website’s goal and target audience |
+| **31 July – 02 August** | **Phase 2:** Catering resources | • Planned responsive layout structure<br>• Created color palette and typography styles for the website<br>• Structured the website’s folder hierarchy |
+| **03 August – 05 August** | **Phase 3:** Development | • Built HTML structure for all web pages (`index`, `about`, `products`, `contact`, `enquiries`)<br>• Developed responsive header, navigation bar, and contact info |
+| **06 August – 08 August** | **Phase 4:** Adding content and first debug | • Added navigation links across all web pages for easy cross-page access<br>• Tested website behavior on different devices of varying screen sizes |
+| **09 August** | **Phase 5:** Review before Submission | • Ensured all files are structured cleanly<br>• Performed final testing across all web pages<br>• Finalized writing the proposal |
+
+---
+
 ## Website Structure
 
 ### Core Web Pages
