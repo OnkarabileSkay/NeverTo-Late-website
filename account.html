@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | NeverToLate</title>
+    <link rel="stylesheet" href="css/account.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("tevqaM5B1CkZD-QKh");
+    })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    
+    <div class="account-container">
+        <!-- Brand Logo Header -->
+        <div class="brand-logo">
+            <a href="index.html">
+                <img src="_image/newlogo.png" alt="NeverToLate Logo">
+            </a>
+        </div>
+
+        <div class="auth-card">
+            <!-- STEP 1: Email Request -->
+            <div id="step-email" class="form-step active">
+                <h1>Sign in</h1>
+                <p class="subtitle">Sign in or create an account</p>
+
+                <form id="form-email" class="email-form">
+                    <div class="input-wrapper">
+                        <input type="email" id="user-email" placeholder="Email" required>
+                        <button type="submit" class="submit-arrow-btn" aria-label="Send Verification Code">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="newsletter" checked>
+                        <span class="checkbox-label">Email me with news and offers</span>
+                    </label>
+                </form>
+            </div>
+
+            <!-- STEP 2: OTP Verification -->
+            <div id="step-otp" class="form-step">
+                <h1>Verification Code</h1>
+                <p class="subtitle">We sent a 6-digit verification code to <br><strong id="display-email" class="highlight-email"></strong></p>
+
+                <form id="form-otp" class="email-form">
+                    <div class="otp-container">
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required autofocus>
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
+                        <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Verify Code</button>
+                    
+                    <div class="step-actions">
+                        <button type="button" id="resend-otp-btn" class="text-link-btn">Resend OTP</button>
+                        <button type="button" id="back-to-email-btn" class="text-link-btn">Change Email</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 3: Complete Personal Details -->
+            <div id="step-details" class="form-step">
+                <h1 id="details-heading">Complete Profile</h1>
+                <p class="subtitle">Enter your personal information to finish setup</p>
+
+                <form id="form-details" class="details-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="John" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="last-name">Surname</label>
+                            <input type="text" id="last-name" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mobile-number">Mobile Phone Number</label>
+                        <input type="tel" id="mobile-number" placeholder="+27 82 123 4567" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="street-address">Street Address</label>
+                        <input type="text" id="street-address" placeholder="123 Main Street" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="city">City / Suburb</label>
+                            <input type="text" id="city" placeholder="Pretoria" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="postal-code">Postal Code</label>
+                            <input type="text" id="postal-code" placeholder="0182" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Save & Continue</button>
+                </form>
+            </div>
+
+            <!-- STEP 4: Success Message -->
+            <div id="step-success" class="form-step text-center">
+                <i class="fa-solid fa-circle-check success-icon"></i>
+                <h1>Account Verified!</h1>
+                <p class="subtitle">Welcome to NeverToLate Apparel. Your profile details have been saved.</p>
+                <a href="index.html" class="primary-btn-link">Return to Shop</a>
+            </div>
+
+            <!-- STEP 5: Logged-In Profile Dashboard (ADDED THIS MISSING SECTION) -->
+            <div id="step-profile" class="form-step text-center">
+                <h1 id="profile-display-fullname">User Profile</h1>
+                <p id="profile-display-email" class="subtitle"></p>
+
+            <div class="profile-actions">
+                <button type="button" id="update-profile-btn" class="primary-btn">Update Profile</button>
+                <button type="button" id="logout-btn" class="secondary-btn">Log Out</button>
+            </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>&copy; NeverToLate Apparel. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Interactive Script -->
+    <script src="js/account.js"></script>
+    <script src="js/protection.js"></script>
+</body>
+</html>
