@@ -318,3 +318,23 @@ footer {
         font-size: 0.95rem;
     }
 }
+/* Profile Badge Styles for Header Icons */
+.user-avatar-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.user-avatar-badge:hover {
+    background-color: #333333;
+}
