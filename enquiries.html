@@ -26,15 +26,20 @@
             <h4>Wa Robala Otla Jangg</h4>
             <nav>
                 <button><a href="index.html">HOME</a></button>
-                <button ><a href="about.html">ABOUT</a></button>
+                <button><a href="about.html">ABOUT</a></button>
                 <button><a href="product.html">PRODUCTS</a></button>
                 <button class="active"><a href="enquiries.html">ENQUIRIES</a></button>
                 <button><a href="contact.html">CONTACT</a></button>
             </nav>
             <div class="header-icons">
-                <a href="#" title="Account"><i class="fa-solid fa-user"></i></a>
-                <a href="#" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="product.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="account.html" title="Account"><i class="fa-solid fa-user"></i></a>
+                <a href="javascript:void(0);" id="searchIconLink" title="Search" onclick="openSearchModal()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="javascript:void(0);" id="cartIconLink" class="cart-icon-wrapper" title="Cart" onclick="openCartDrawer()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCountBadge" class="cart-count-badge hidden">0</span>
+                </a>
             </div>
         </div>
 
@@ -44,12 +49,20 @@
         </div>
     </div>
     </header>
+
     <main>
         <section class="enquiry-container">
             <h2>Submit an Enquiry</h2>
             <p>Have questions regarding stock availability, custom orders, or shipping? Fill out the form below and our team will get back to you shortly.</p>
 
-            <form action="#" method="POST">
+            <!-- WhatsApp Direct Contact Button -->
+            <div style="margin: 20px 0; text-align: left;">
+                <a href="https://wa.me/27707613772?text=Hi%20NeverTo%20Late,%20I%20would%20like%20to%20place%20an%20order%20or%20make%20an%20enquiry." target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); transition: background 0.2s;">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Order or Enquire via WhatsApp
+                </a>
+            </div>
+
+            <form action="#" method="POST" id="enquiryForm">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
                     <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
@@ -72,7 +85,7 @@
                         <option value="order">Order Status & Tracking</option>
                         <option value="stock">Stock & Restock Inquiries</option>
                         <option value="custom">Custom Orders & Bulk Sales</option>
-                        <option value="other">General Query</option>
+                        <option value="other">General Query & Other</option>
                     </select>
                 </div>
 
@@ -84,13 +97,87 @@
                 <button type="submit" class="submit-btn">Send Enquiry</button>
             </form>
         </section>
+
+        <!-- Floating Admin Button -->
+        <a href="javascript:void(0);" onclick="openAdmin()" title="Admin Dashboard" class="admin-fab-btn">
+            <i class="fa-solid fa-user-shield"></i>
+        </a>
     </main>
 
     <footer>
         <p>&copy; NeverToLate Apparel. All rights reserved.</p>
     </footer>
-    <!-- adding java protection from inspection in google -->
-      <script src="js/protection.js"></script>
 
+    <!-- Background Overlay for Cart Drawer -->
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+
+    <!-- Left Side Cart Drawer Container -->
+    <aside id="cartDrawer" class="cart-drawer left-drawer">
+        <div class="cart-drawer-header">
+            <h2>CART</h2>
+            <button class="close-drawer-btn" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div id="cartDrawerBody" class="cart-drawer-body">
+            <!-- Dynamic cart items rendered here via cart.js -->
+        </div>
+
+        <div id="cartDrawerFooter" class="cart-drawer-footer hidden">
+            <div class="cart-total-row">
+                <span>TOTAL</span>
+                <span id="cartDrawerTotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='product.html'">
+                CHECKOUT &bull; <span id="checkoutBtnTotal">R 0.00</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Search Overlay Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH PRODUCTS..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results-container">
+                <!-- Dynamic search results render here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal Overlay -->
+    <div id="adminLoginModal" class="admin-modal-overlay">
+        <div class="admin-modal-card">
+            <h2>Admin Authentication</h2>
+            <p class="subtitle">Enter your credentials to access the dashboard.</p>
+            
+            <form id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminUser">Enter username:</label>
+                    <input type="text" id="adminUser" placeholder="Username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="adminPin">Enter PIN:</label>
+                    <input type="password" id="adminPin" placeholder="PIN code" maxlength="4" required>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="submit" class="curtain-btn primary-curtain">Login</button>
+                    <button type="button" class="curtain-btn secondary-curtain" onclick="closeAdminModal()">Cancel</button>
+                </div>
+                <p id="loginErrorMsg" style="color: #ff4d4d; font-size: 12px; margin-top: 15px; text-align: center; display: none;"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/product-detail.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/enquires.js"></script>
 </body>
 </html>
