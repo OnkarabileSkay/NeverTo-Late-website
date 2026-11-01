@@ -132,5 +132,39 @@
         </form>
     </div>
 </div>
+<!-- Admin Authentication Script -->
+    <script>
+        function openAdmin() {
+            const modal = document.getElementById('adminLoginModal');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeAdminModal() {
+            const modal = document.getElementById('adminLoginModal');
+            if (modal) modal.style.display = 'none';
+            const errorMsg = document.getElementById('loginErrorMsg');
+            if (errorMsg) errorMsg.style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById('adminLoginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const user = document.getElementById('adminUser').value.trim();
+                    const pin = document.getElementById('adminPin').value.trim();
+                    const errorMsg = document.getElementById('loginErrorMsg');
+
+                    // The real pins
+                    if (user === 'NVTL-restrictions' && pin === '2006') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        errorMsg.textContent = 'Invalid username or PIN code!';
+                        errorMsg.style.display = 'block';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
