@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Java Scripts -->
+    <script src="js/product-detail.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
 </head>
 <body>
     <header>
@@ -28,9 +33,14 @@
                 <button><a href="contact.html">CONTACT</a></button>
             </nav>
             <div class="header-icons">
-                <a href="#" title="Account"><i class="fa-solid fa-user"></i></a>
-                <a href="#" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="product.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="account.html" id="profileIcon" title="Account"><i class="fa-solid fa-user"></i></a>
+                <a href="javascript:void(0);" id="searchIconLink" title="Search" onclick="openSearchModal()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="javascript:void(0);" id="cartIconLink" class="cart-icon-wrapper" title="Cart" onclick="openCartDrawer()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCountBadge" class="cart-count-badge hidden">0</span>
+                </a>
             </div>
         </div>
 
@@ -40,6 +50,7 @@
         </div>
     </div>
     </header>
+
     <main>
         <!-- Main content and information -->
         <div class="story-section">
@@ -84,12 +95,59 @@
                 </video>
             </div>
         </section>
+        <!-- CEO Profile Section -->
+        <section class="ceo-section">
+            <div class="ceo-profile-container">
+                <div class="ceo-image-wrapper">
+                    <img src="_image/stuff/ceo.jpeg"" alt="Founder">
+                </div>
+                <h3 class="ceo-title">CEO:Onkarabile Skhosana</h3>
+            </div>
+        </section>
     </main>
+
     <!-- Footer section-->
     <footer>
         <p>&copy; NeverToLate Apparel. All rights reserved.</p>
     </footer>
-    <!-- adding java protection from inspection in google -->
-    <script src="js/protection.js"></script>
+
+    <!-- Background Overlay for Cart Drawer -->
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+
+    <!-- Left Side Cart Drawer Container -->
+    <aside id="cartDrawer" class="cart-drawer left-drawer">
+        <div class="cart-drawer-header">
+            <h2>CART</h2>
+            <button class="close-drawer-btn" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div id="cartDrawerBody" class="cart-drawer-body">
+            <!-- Dynamic cart items rendered here via cart.js -->
+        </div>
+
+        <div id="cartDrawerFooter" class="cart-drawer-footer hidden">
+            <div class="cart-total-row">
+                <span>TOTAL</span>
+                <span id="cartDrawerTotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='product.html'">
+                CHECKOUT &bull; <span id="checkoutBtnTotal">R 0.00</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Search Overlay Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH PRODUCTS..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results-container">
+                <!-- Dynamic search results render here -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
