@@ -17,7 +17,7 @@ function updateHeaderProfileIcon() {
                 console.error("Error parsing user session", e);
             }
         } else {
-            // Restore default icon when logged out
+            // Restore the default icon when the user is logged out
             link.innerHTML = `<i class="fa-solid fa-user"></i>`;
             link.title = "Account";
             link.setAttribute("aria-label", "Account");
@@ -25,7 +25,7 @@ function updateHeaderProfileIcon() {
     });
 }
 
-// Global Log Out function (clears session & redirects home)
+// function to clears sessions & redirects the user to home page
 function logoutUser() {
     localStorage.removeItem("nvtl_user");
     updateHeaderProfileIcon();
