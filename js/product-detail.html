@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | NeverTo Late</title>
+    <!-- Linked Global Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Linked Dedicated Product Detail Stylesheet -->
+    <link rel="stylesheet" href="css/product-detail.css">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Left Column: Old Logo -->
+            <div class="header-logo left">
+                <img src="_image/oldlogo.png" alt="NeverToLate Old Logo">
+            </div>
+
+            <!-- Center Column: Main Header Content -->
+            <div class="header-center">
+                <h1>NEVERTO LATE</h1>
+                <h4>Wa Robala Otla Jangg</h4>
+                <nav>
+                    <button><a href="index.html">HOME</a></button>
+                    <button><a href="about.html">ABOUT</a></button>
+                    <button class="active"><a href="product.html">PRODUCTS</a></button>
+                    <button><a href="enquiries.html">ENQUIRIES</a></button>
+                    <button><a href="contact.html">CONTACT</a></button>
+                </nav>
+                <div class="header-icons">
+                    <a href="account.html" id="profileIcon" title="Account"><i class="fa-solid fa-user"></i></a>
+                    <!-- Updated Search Link to trigger the Search Modal -->
+                    <a href="javascript:void(0);" id="searchIconLink" title="Search" onclick="openSearchModal()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="javascript:void(0);" id="cartIconLink" class="cart-icon-wrapper" title="Cart" onclick="openCartDrawer()">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cartCountBadge" class="cart-count-badge hidden">0</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: New Logo -->
+            <div class="header-logo right">
+                <img src="_image/newlogo.png" alt="NeverToLate New Logo">
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail-page-container">
+        <!-- Back Link -->
+        <a href="product.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Products</a>
+
+        <!-- Main Product Grid -->
+        <div class="single-product-container">
+            <!-- Left Column: Product Showcase Frame -->
+            <div class="product-image-frame" id="zoomContainer">
+                <img id="detailProductImg" src="" alt="Product Image">
+            </div>
+
+            <!-- Right Column: Product Meta Details -->
+            <div class="single-product-info">
+                <h1 id="detailProductName" class="streetwear-title">LOADING...</h1>
+                
+                <!-- Feature Badges -->
+                <div class="product-tags">
+                    <span class="tag">LOCATION INSPIRED</span>
+                    <span class="tag">GRAPHIC DESIGN</span>
+                    <span class="tag">100% COTTON</span>
+                </div>
+
+                <div class="colour-label" id="detailColourLabel">Colour: Black</div>
+                <div id="detailProductPrice" class="detail-price">R0.00</div>
+                <p id="detailProductDesc" class="detail-description">Fetching product details...</p>
+            </div>
+        </div>
+
+        <!-- Floating Purchase Bar -->
+        <div class="sticky-purchase-bar">
+            <div class="sticky-bar-left">
+                <img id="stickyProductThumb" src="" alt="Thumb">
+                <div class="sticky-text-info">
+                    <span id="stickyProductName" class="sticky-title">012 T-SHIRT</span>
+                    <span id="stickyProductPrice" class="sticky-price">R 600.00</span>
+                </div>
+            </div>
+            
+            <div class="sticky-bar-right">
+                <div class="select-wrapper">
+                    <select id="sizeSelect">   
+                        <option value="XL">XL</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="S">S</option>
+                        <option value="XS">XS</option>
+                    </select>
+                </div>
+
+                <button id="stickyAddToCartBtn" class="sticky-action-btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <section class="recommendations-section">
+            <h3 class="recommendations-header">YOU MAY ALSO LIKE...</h3>
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- Dynamic Content -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+    <aside id="cartDrawer" class="cart-drawer left-drawer">
+        <div class="cart-drawer-header">
+            <h2>CART</h2>
+            <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
+        </div>
+        <div id="cartDrawerBody" class="cart-drawer-body"></div>
+        <div id="cartDrawerFooter" class="cart-drawer-footer hidden">
+            <div class="cart-total-row">
+                <span>TOTAL</span>
+                <span id="cartDrawerTotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn">CHECKOUT &bull; <span id="checkoutBtnTotal">R 0.00</span></button>
+        </div>
+    </aside>
+
+    <!-- Search Overlay Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH PRODUCTS..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results-container">
+                <!-- Dynamic search results render here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Gallery Lightbox Modal Container -->
+    <div id="galleryLightbox" class="gallery-lightbox-modal" onclick="closeLightbox()">
+        <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
+            <!-- Left-aligned Red X Close Button -->
+            <button class="lightbox-close-btn" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImage" src="" alt="Enlarged Product View">
+            <p id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; NeverToLate Apparel. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/account.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>
