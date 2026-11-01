@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | NeverTo Late</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Admin Specific Styling */
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 15px;
+        }
+        .admin-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        h1, h2 {
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .admin-section {
+            background: #252525;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Table Container */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 1px solid #333333;
+            font-size: 13px;
+        }
+        th {
+            color: #aaaaaa;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        .status-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        .in-stock {
+            background-color: #2e7d32;
+            color: #ffffff;
+        }
+        .sold-out {
+            background-color: #c62828;
+            color: #ffffff;
+        }
+        .load-more-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .load-more-btn {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #444444;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .load-more-btn:hover {
+            background-color: #444444;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            color: #ffffff;
+        }
+        .empty-notice {
+            color: #777777;
+            font-style: italic;
+            padding: 15px 0;
+        }
+
+        /* Responsive Mobile Styles (< 600px) */
+        @media screen and (max-width: 600px) {
+            .admin-container {
+                padding: 5px;
+                margin: 10px auto;
+            }
+            .admin-section {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            /* Hide Product ID column on small screens to fit Name, Price, Status & Action */
+            table th:nth-child(1),
+            table td:nth-child(1) {
+                display: none;
+            }
+            th, td {
+                padding: 8px 4px;
+                font-size: 11px;
+            }
+            .status-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Storefront</a>
+        <h1>NEVERTO LATE &bull; ADMIN DASHBOARD</h1>
+        
+        <!-- Stock Availability Manager -->
+        <div class="admin-section">
+            <h2>Stock Availability Manager</h2>
+            <p style="font-size: 13px; color: #aaaaaa; margin-bottom: 15px;">Click the button next to any product to toggle its availability status instantly.</p>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="load-more-container" id="loadMoreContainer">
+                <button class="load-more-btn" onclick="toggleLoadMore()">Load More Products</button>
+            </div>
+        </div>
+
+        <!-- Submitted Enquiries Viewer -->
+        <div class="admin-section">
+            <h2>Submitted Enquiries</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enquiriesTableBody">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Script -->
+    <script>
+        let inventory = JSON.parse(localStorage.getItem('nt_inventory_v2')) || [
+            { id: 'hoodie1', name: 'Asymmetric Tech-Pouch Pullover', price: 500.00, isSoldOut: false },
+            { id: 'hoodie2', name: 'Tri-Block Utility Hoodie', price: 600.00, isSoldOut: false },
+            { id: 'hoodie3', name: 'Tactical Raglan', price: 550.00, isSoldOut: false },
+            { id: 'hoodie4', name: 'Geometric Split-Zip Hoodie', price: 800.00, isSoldOut: true },
+            { id: 'more-effort-Hoodie-Black', name: 'Heavy Duty (Black)', price: 600.00, isSoldOut: false },
+            { id: 'more-effort-Hoodie-White', name: 'Heavy Duty (White)', price: 600.00, isSoldOut: false },
+            { id: 'sidebag1', name: 'Tactical Utility Crossbody', price: 280.00, isSoldOut: false },
+            { id: 'sidebag2', name: 'Mapara Blocking', price: 400.00, isSoldOut: false },
+            { id: 'sidebag3', name: 'Dual-Strap', price: 350.00, isSoldOut: false },
+            { id: 'NVTL-Black-Beanie', name: 'Essential-Black-Beanie', price: 120.00, isSoldOut: false },
+            { id: 'NVTL-White-Beanie', name: 'Essential-White-Beanie', price: 120.00, isSoldOut: false }
+        ];
+
+        let showAllInventory = false;
+        const initialDisplayLimit = 3;
+
+        function renderInventory() {
+            const tbody = document.getElementById('inventoryTableBody');
+            const loadMoreBtn = document.getElementById('loadMoreContainer');
+            tbody.innerHTML = '';
+
+            const itemsToDisplay = showAllInventory ? inventory : inventory.slice(0, initialDisplayLimit);
+
+            itemsToDisplay.forEach((item) => {
+                const realIndex = inventory.findIndex(inv => inv.id === item.id);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>R ${item.price.toFixed(2)}</td>
+                    <td>${item.isSoldOut ? '<span style="color:#c62828;">Sold Out</span>' : '<span style="color:#2e7d32;">In Stock</span>'}</td>
+                    <td>
+                        <button class="status-btn ${item.isSoldOut ? 'sold-out' : 'in-stock'}" onclick="toggleStock(${realIndex})">
+                            ${item.isSoldOut ? 'Mark In Stock' : 'Mark Sold Out'}
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const btnElement = loadMoreBtn.querySelector('button');
+            if (inventory.length <= initialDisplayLimit) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+                btnElement.textContent = showAllInventory ? 'Show Less' : 'Load More Products';
+            }
+
+            localStorage.setItem('nt_inventory_v2', JSON.stringify(inventory));
+        }
+
+        function toggleLoadMore() {
+            showAllInventory = !showAllInventory;
+            renderInventory();
+        }
+
+        function toggleStock(index) {
+            inventory[index].isSoldOut = !inventory[index].isSoldOut;
+            renderInventory();
+        }
+
+        function renderEnquiries() {
+            const tbody = document.getElementById('enquiriesTableBody');
+            const enquiries = JSON.parse(localStorage.getItem('nt_enquiries')) || [];
+
+            tbody.innerHTML = '';
+            if (enquiries.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="empty-notice">No enquiries submitted yet.</td></tr>`;
+                return;
+            }
+
+            enquiries.forEach(enq => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${enq.date}</td>
+                    <td>${enq.name}</td>
+                    <td>${enq.email}</td>
+                    <td>${enq.message}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Initialize dashboard on load
+        renderInventory();
+        renderEnquiries();
+    </script>
+</body>
+</html>
