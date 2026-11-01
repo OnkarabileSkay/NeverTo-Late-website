@@ -6,6 +6,12 @@
     <title>Home | NeverTo Late</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
+    <!-- Java Scripts -->
+    <script src="js/product-detail.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/enquires.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -22,15 +28,21 @@
             <h4>Wa Robala Otla Jangg</h4>
             <nav>
                 <button class="active"><a href="index.html">HOME</a></button>
-                <button ><a href="about.html">ABOUT</a></button>
+                <button><a href="about.html">ABOUT</a></button>
                 <button><a href="product.html">PRODUCTS</a></button>
                 <button><a href="enquiries.html">ENQUIRIES</a></button>
                 <button><a href="contact.html">CONTACT</a></button>
             </nav>
             <div class="header-icons">
-                <a href="#" title="Account"><i class="fa-solid fa-user"></i></a>
-                <a href="#" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="product.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="account.html" id="profileIcon" title="Account"><i class="fa-solid fa-user"></i></a>
+                <!-- Updated Search Trigger Link -->
+                <a href="javascript:void(0);" id="searchIconLink" title="Search" onclick="openSearchModal()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="javascript:void(0);" id="cartIconLink" class="cart-icon-wrapper" title="Cart" onclick="openCartDrawer()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCountBadge" class="cart-count-badge hidden">0</span>
+                </a>
             </div>
         </div>
 
@@ -52,7 +64,73 @@
     <footer>
         <p>&copy; NeverToLate Apparel. All rights reserved.</p>
     </footer>
-    <!-- adding java protection from inspection in google -->
-    <script src="js/protection.js"></script>
+
+    <!-- Background Overlay for Cart Drawer -->
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+
+    <!-- Left Side Cart Drawer Container -->
+    <aside id="cartDrawer" class="cart-drawer left-drawer">
+        <div class="cart-drawer-header">
+            <h2>CART</h2>
+            <button class="close-drawer-btn" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div id="cartDrawerBody" class="cart-drawer-body">
+            <!-- Dynamic cart items rendered here via cart.js -->
+        </div>
+
+        <div id="cartDrawerFooter" class="cart-drawer-footer hidden">
+            <div class="cart-total-row">
+                <span>TOTAL</span>
+                <span id="cartDrawerTotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='product.html'">
+                CHECKOUT &bull; <span id="checkoutBtnTotal">R 0.00</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Search Overlay Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH PRODUCTS..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results-container">
+                <!-- Dynamic search results render here -->
+            </div>
+        </div>
+    </div>
+    <!-- Floating Admin Button -->
+    <a href="javascript:void(0);" onclick="openAdmin()" title="Admin Dashboard" class="admin-fab-btn">
+        <i class="fa-solid fa-user-shield"></i>
+    </a>
+    <!-- Admin Login Modal Overlay -->
+<div id="adminLoginModal" class="admin-modal-overlay">
+    <div class="admin-modal-card">
+        <h2>Admin Authentication</h2>
+        <p class="subtitle">Enter your credentials to access the dashboard.</p>
+        
+        <form id="adminLoginForm">
+            <div class="input-group">
+                <label for="adminUser">Enter username:</label>
+                <input type="text" id="adminUser" placeholder="Username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="adminPin">Enter PIN:</label>
+                <input type="password" id="adminPin" placeholder="PIN code" maxlength="4" required>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="submit" class="curtain-btn primary-curtain">Login</button>
+                <button type="button" class="curtain-btn secondary-curtain" onclick="closeAdminModal()">Cancel</button>
+            </div>
+            <p id="loginErrorMsg" style="color: #ff4d4d; font-size: 12px; margin-top: 15px; text-align: center; display: none;"></p>
+        </form>
+    </div>
+</div>
 </body>
 </html>
