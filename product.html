@@ -13,95 +13,167 @@
 </head>
 <body>
     <header>
-    <div class="header-container">
-        <!-- Left Column: Old Logo -->
-        <div class="header-logo left">
-            <img src="_image/oldlogo.png" alt="NeverToLate Old Logo">
-        </div>
+        <div class="header-container">
+            <!-- Left Column: Old Logo -->
+            <div class="header-logo left">
+                <img src="_image/oldlogo.png" alt="NeverToLate Old Logo">
+            </div>
 
-        <!-- Center Column: Main Header Content -->
-        <div class="header-center">
-            <h1>NEVERTO LATE</h1>
-            <h4>Wa Robala Otla Jangg</h4>
-            <nav>
-                <button><a href="index.html">HOME</a></button>
-                <button><a href="about.html">ABOUT</a></button>
-                <button class="active"><a href="product.html">PRODUCTS</a></button>
-                <button><a href="enquiries.html">ENQUIRIES</a></button>
-                <button><a href="contact.html">CONTACT</a></button>
-            </nav>
-            <div class="header-icons">
-                <a href="#" title="Account"><i class="fa-solid fa-user"></i></a>
-                <a href="#" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="product.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <!-- Center Column: Main Header Content -->
+            <div class="header-center">
+                <h1>NEVERTO LATE</h1>
+                <h4>Wa Robala Otla Jangg</h4>
+                <nav>
+                    <button><a href="index.html">HOME</a></button>
+                    <button><a href="about.html">ABOUT</a></button>
+                    <button class="active"><a href="product.html">PRODUCTS</a></button>
+                    <button><a href="enquiries.html">ENQUIRIES</a></button>
+                    <button><a href="contact.html">CONTACT</a></button>
+                </nav>
+                <div class="header-icons">
+                    <a href="account.html" id="profileIcon" title="Account"><i class="fa-solid fa-user"></i></a>
+                    <a href="javascript:void(0);" id="searchIconLink" title="Search" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="javascript:void(0);" id="cartIconLink" class="cart-icon-wrapper" title="Cart" onclick="openCartDrawer()">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cartCountBadge" class="cart-count-badge hidden">0</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: New Logo -->
+            <div class="header-logo right">
+                <img src="_image/newlogo.png" alt="NeverToLate New Logo">
             </div>
         </div>
-
-        <!-- Right Column: New Logo -->
-        <div class="header-logo right">
-            <img src="_image/newlogo.png" alt="NeverToLate New Logo">
-        </div>
-    </div>
-</header>
+    </header>
 
     <main>
-        <!-- Filter Controls -->
+        <!-- Filter Bar Container -->
         <div class="filter-container">
-            <button class="filter-btn"><i class="fa-solid fa-filter"></i> Filter Products</button>
+            <button class="filter-main-btn" onclick="toggleMainFilter()"><i class="fa-solid fa-filter"></i> Filter Products</button>
+    
+            <div id="filterOptionsBar" class="filter-options-bar hidden">
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <select id="filterCategory" onchange="applyAllFilters()">
+                        <option value="all">Category: All</option>
+                        <option value="hoodies">NVTL-Hoodies</option>
+                        <option value="sidebags">NVTL-Sidebags</option>
+                        <option value="hats">NVTL-Hats</option>
+                    </select>
+                </div>
+
+                <!-- Color Filter -->
+                <div class="filter-group">
+                    <select id="filterColor" onchange="applyAllFilters()">
+                        <option value="all">Colour: All</option>
+                        <option value="blue">Blue</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="cream">Cream</option>
+                    </select>
+                </div>
+                <!-- Size Filter -->
+                <div class="filter-group">
+                    <select id="filterSize" onchange="applyAllFilters()">
+                        <option value="all">Size: All</option>
+                        <option value="S">Small (S)</option>
+                        <option value="M">Medium (M)</option>
+                        <option value="L">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                    </select>
+                </div>
+
+                <!-- Price Sort -->
+                <div class="filter-group">
+                    <select id="filterPrice" onchange="applyAllFilters()">
+                        <option value="default">Price: Default</option>
+                        <option value="cheap">Cheapest First</option>
+                        <option value="expensive">Most Expensive First</option>
+                    </select>
+                </div>
+
+                <!-- Availability Filter -->
+                <div class="filter-group">
+                    <label class="availability-checkbox">
+                        <input type="checkbox" id="filterAvailability" onchange="applyAllFilters()"> Available Only
+                    </label>
+                </div>
+
+                <!-- Reset Button -->
+                <button class="reset-filter-btn" onclick="resetFilters()">Reset All</button>
+            </div>
         </div>
 
         <!-- Hoodies Section -->
         <h3 class="category-title hoodies">NVTL (NeverTo Late) Hoodies</h3>
         <table class="product-table">
             <tr>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=hoodie1'">
                     <img src="_image/hoodies/hoodie1.png" alt="Asymmetric Tech-Pouch Pullover">
                     <p class="product-title">Asymmetric Tech-Pouch Pullover</p>
                     <p class="price">R500.00</p>
                     <p class="description">400 GSM Heavyweight Organic Cotton Fleece with Matte Nylon Accents. Features an asymmetrical kangaroo pocket with an extended side zipper, high-funnel neck hood with dual-tone drawstrings, electric blue shoulder paneling, and a small woven patch on the chest with a full-back print.</p>
                 </td>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=hoodie2'">
                     <img src="_image/hoodies/hoodie2.png" alt="Tri-Block Utility Hoodie">
                     <p class="product-title">Tri-Block Utility Hoodie</p>
                     <p class="price">R600.00</p>
                     <p class="description">360 GSM Premium Cotton-Polyester Blend (Fleece-Lined). Classic color-blocked design (Royal Blue, Pure White, Jet Black), front kangaroo pouch, white drawstrings with metal aglets, dual screen-printed branding on both front chest and back.</p>
                 </td>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=hoodie3'">
                     <img src="_image/hoodies/hoodie3.png" alt="Tactical Raglan">
                     <p class="product-title">Tactical Raglan</p>
                     <p class="price">R550.00</p>
                     <p class="description">420 GSM French Terry Cotton. High-contrast black and white raglan sleeve construction, a functional front tactical cargo pouch secured with an adjustable royal blue strap buckle, and high-impact screen printing on both sides.</p>
                 </td>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=hoodie4'">
                     <img src="_image/hoodies/hoodie4.png" alt="Geometric Split-Zip Hoodie">
                     <p class="product-title">Geometric Split-Zip Hoodie</p>
                     <p class="price">R800.00</p>
                     <p class="description">380 GSM Heavyweight Brushed Fleece. Full-length front zipper with a side-hem expansion zip, dynamic geometric color-splicing (Black, White, Royal Blue), subtle left-chest crest branding, and a bold full-back centerpiece graphic.</p>
                 </td>
             </tr>
+            <!-- Added id="extraHoodiesRow" here -->
+            <tr id="extraHoodiesRow">
+                <td class="extra-hoodie-cell" onclick="window.location.href='product-detail.html?id=more-effort-Hoodie-Black'">
+                    <img src="_image/combo/more-effort-Hoodie-Black.png" alt="Black World hoodie">
+                    <p class="product-title">Heavy Duty</p>
+                    <p class="price">R600.00</p>
+                    <p class="description">360 GSM Premium Cotton-Polyester Blend (Fleece-Lined). Jet black colorway, featuring hanging black utility straps and metal buckles, dual screen-printed branding with NVTL chest logo on the front and the man carrying the world graphic on the back, Monna ke spane</p>
+                </td>
+                <td class="extra-hoodie-cell" onclick="window.location.href='product-detail.html?id=more-effort-Hoodie-White'">
+                    <img src="_image/combo/more-effort-Hoodie-White.jpg" alt="White World hoodie">
+                    <p class="product-title">Heavy Duty</p>
+                    <p class="price">R600.00</p>
+                    <p class="description">360 GSM Premium Cotton-Polyester Blend (Fleece-Lined). Jet black colorway, featuring hanging black utility straps and metal buckles, dual screen-printed branding with NVTL chest logo on the front and the man carrying the world graphic on the back, Monna ke spane</p>
+                </td>
+                <td class="empty-cell"></td>
+                <td class="empty-cell"></td>
+            </tr>
         </table>
         
         <div class="load-more-container">
-            <button class="load-more-btn">Load More Hoodies</button>
+            <button class="load-more-btn" id="loadMoreHoodiesBtn" onclick="toggleLoadMoreHoodies()">Load More Hoodies</button>
         </div>
 
         <!-- Side Bags Section -->
         <h3 class="category-title sidebags">NVTL (NeverToLate) Side Bags</h3>
         <table class="product-table">
             <tr>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=sidebag1'">
                     <img src="_image/bags/sidebag1.png" alt="Tactical Utility Crossbody">
                     <p class="product-title">Tactical Utility Crossbody</p>
                     <p class="price">R280.00</p>
                     <p class="description">Heavy-Duty Ballistic Nylon with Water-Resistant Coating. Features front MOLLE webbing, bright blue contrast zippers, a metal quick-release cobra buckle, woven NeverToLate graphic patch on front, and bold "Wa robala otla jangg" typography printed along the strap.</p>
                 </td>
-                <td>
-                    <img src="_image/bags/sidebag2.png" alt="Mapara blocking">
+                <td onclick="window.location.href='product-detail.html?id=sidebag2'">
+                    <img src="_image/bags/sidebag2.png" alt="Mapara Blocking">
                     <p class="product-title">Mapara Blocking</p>
                     <p class="price">R400.00</p>
                     <p class="description">High-Density 600D Cordura Nylon with Breathable Air-Mesh Backing. Features a tri-tone color scheme (Royal Blue, Jet Black, Off-White), thick blue crossbody harness, mesh padded shoulder panel for comfort, and a diagonal NeverToLate block text graphic printed on the front pocket.</p>
                 </td>
-                <td>
+                <td onclick="window.location.href='product-detail.html?id=sidebag3'">
                     <img src="_image/bags/sidebag3.png" alt="Dual-Strap">
                     <p class="product-title">Dual-Strap</p>
                     <p class="price">R350.00</p>
@@ -112,9 +184,26 @@
             </tr>
         </table>
 
-        <div class="load-more-container">
-            <button class="load-more-btn">Load More Side Bags</button>
-        </div>
+        <!-- Hats Section -->
+        <h3 class="category-title hats">NVTL (NeverToLate) Hats</h3>
+        <table class="product-table">
+            <tr>
+                <td onclick="window.location.href='product-detail.html?id=NVTL-Black-Beanie'">
+                    <img src="_image/Hats/NVTL-Black-Beanie.png" alt="Black NVTL beanie">
+                    <p class="product-title">Essential-Black-Beanie</p>
+                    <p class="price">R120.00</p>
+                    <p class="description">Our Classic Cuff Beanie combines everyday comfort with a clean streetwear look. Designed for everyday wear, this beanie features a soft knitted construction, a fold-over cuff and our signature NeverTo Late logo.</p>
+                </td>
+                <td onclick="window.location.href='product-detail.html?id=NVTL-White-Beanie'">
+                    <img src="_image/Hats/NVTL-White-Beanie.png" alt="White NVTL beanie">
+                    <p class="product-title">Essential-White-Beanie</p>
+                    <p class="price">R120.00</p>
+                    <p class="description">Our Classic Cuff Beanie combines everyday comfort with a clean streetwear look. Designed for everyday wear, this beanie features a soft knitted construction, a fold-over cuff and our signature NeverTo Late logo.</p>
+                </td>
+                <td class="empty-cell"></td>
+                <td class="empty-cell"></td>
+            </tr>
+        </table>
 
         <!-- Coming Soon Teaser Section -->
         <section class="coming-soon-section">
@@ -123,10 +212,54 @@
         </section>
     </main>
 
+    <!-- Left Side Cart Drawer Container -->
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+    <aside id="cartDrawer" class="cart-drawer left-drawer">
+        <div class="cart-drawer-header">
+            <h2>CART</h2>
+            <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
+        </div>
+        <div id="cartDrawerBody" class="cart-drawer-body"></div>
+        <div id="cartDrawerFooter" class="cart-drawer-footer hidden">
+            <div class="cart-total-row">
+                <span>TOTAL</span>
+                <span id="cartDrawerTotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn">CHECKOUT &bull; <span id="checkoutBtnTotal">R 0.00</span></button>
+        </div>
+    </aside>
+
+    <!-- Search Overlay Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH PRODUCTS..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results-container">
+                <!-- Dynamic search results render here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal Container -->
+    <div id="galleryLightbox" class="gallery-lightbox-modal" onclick="closeLightbox()">
+        <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
+            <button class="lightbox-close-btn" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImage" src="" alt="Enlarged Product View">
+            <p id="lightboxCaption"></p>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; NeverToLate Apparel. All rights reserved.</p>
     </footer>
-    <!-- adding java protection from inspection in google -->
-    <script src="js/protection.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/account.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
