@@ -33,18 +33,6 @@ The **NeverToLate** web platform delivers a clean, accessible, and highly struct
 
 ---
 
-## Project Timeline
-
-| Date | Phase | Description |
-|---|---|---|
-| **27 July – 30 July** | **Phase 1:** Assignment planning | • Decided on what languages to use<br>• Defined website’s goal and target audience |
-| **31 July – 02 August** | **Phase 2:** Catering resources | • Planned responsive layout structure<br>• Created color palette and typography styles for the website<br>• Structured the website’s folder hierarchy |
-| **03 August – 05 August** | **Phase 3:** Development | • Built HTML structure for all web pages (`index`, `about`, `products`, `contact`, `enquiries`)<br>• Developed responsive header, navigation bar, and contact info |
-| **06 August – 08 August** | **Phase 4:** Adding content and first debug | • Added navigation links across all web pages for easy cross-page access<br>• Tested website behavior on different devices of varying screen sizes |
-| **09 August** | **Phase 5:** Review before Submission | • Ensured all files are structured cleanly<br>• Performed final testing across all web pages<br>• Finalized writing the proposal |
-
----
-
 ## Website Structure
 
 ### Core Web Pages
@@ -250,6 +238,16 @@ Changes for my NeverToLate Website
   ### Added
   - **Code comments across all css files** — added explanatory comments to `about.css`, `contact.css`, `enquiries.css`, `index.css`, `main.css` and `product.css` for better readability and to make others to understand my code.
 
+  ---
+
+  ## 2026-10-12
+
+  ### Added
+  - **Created a new account.html file** - To allow customers to sign in and create accounts, So that they can be able to tract their orders, view all their purchased history, act.
+  
+  - **Created a new java script file account.js** - To allow the users to intereact with the system, and allow the system to generate the rendom numbers when the user signs in.
+  - **Created a new account.css file** - Created a css file to style the login side to be different than the main websids. 
+
 ## Changelog
  A full, dated record of every change made during the web side development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
 
@@ -257,7 +255,7 @@ Changes for my NeverToLate Website
 
 Harvard-style reference list of sources used during the development of the NeverToLate website.
 
----
+--- 
 
 - Bro Code, 2013. *HTML & CSS Full Course for free*. [Video Online] Available at: <https://www.youtube.com/watch?v=HGTJBPNC-Gw> [Accessed 05 September 2026].
 
