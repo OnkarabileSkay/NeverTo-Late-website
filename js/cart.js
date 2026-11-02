@@ -1,6 +1,6 @@
 /*Java Script for the cart drower*/
 
-// Helper: Retrieve cart items from localStorage
+// Retrieve cart items from localStorage
 function getCart() {
     try {
         const cartData = localStorage.getItem("nvtl_cart");
@@ -11,7 +11,7 @@ function getCart() {
     }
 }
 
-// Helper: Save cart items to localStorage and emit cart update event
+// Save cart items to localStorage and emit cart update event
 function saveCart(cart) {
     try {
         localStorage.setItem("nvtl_cart", JSON.stringify(cart));
