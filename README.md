@@ -247,6 +247,37 @@ Changes for my NeverToLate Website
   
   - **Created a new java script file account.js** - To allow the users to intereact with the system, and allow the system to generate the rendom numbers when the user signs in.
   - **Created a new account.css file** - Created a css file to style the login side to be different than the main websids. 
+  - **Created a new accout.css style sheet** - Creted the style sheet to make our customers feal special when they create their membership account
+  - **Created adim.html** - Created the admin page to allow the NVTL stuff to update the inventory, amd the manage the enquiries
+  - **Created cart.js** - Created a cart java file to allow our customers to search for the specefic things that they want. 
+
+  ---
+
+## 2026-10-28
+
+### Added
+- **Heavy-Duty Hoodie Collection Expansion (`js/product.js` & `js/product-detail.js`)**
+  - Integrated heavy-duty catalog hoodie additions: **Heavy Duty Black** (`more-effort-Hoodie-Black`) and **Heavy Duty White** (`more-effort-Hoodie-White`).
+  - Configured item specs: 360 GSM fleece-lined fabric, hanging black utility straps with metal buckles, NVTL front chest logo, and signature back graphic (*"Man carrying the world"* / *Monna ke spane*).
+- **Master Catalog Synchronization**
+  - Unified catalog data objects (`catalogData`) across product controllers (`js/product.js` & `js/product-detail.js`) for all 11 catalog items (`hoodie1`–`hoodie4`, `more-effort-Hoodie-Black`, `more-effort-Hoodie-White`, `sidebag1`–`sidebag3`, `NVTL-Black-Beanie`, and `NVTL-White-Beanie`).
+- **Interactive "Load More Hoodies" Toggle (`product.html`)**
+  - Added secondary grid expansion cells (`.extra-hoodie-cell`) set to `display: none` by default.
+  - Built `toggleLoadMoreHoodies()` script logic switching button text dynamically between `"Load More Hoodies"` and `"Show Less Hoodies"`.
+- **Product Detail Interface Optimization (`product-detail.html`)**
+  - Removed unwanted size-selector dropdown container (`#sizeSelect`) from the floating purchase bar for a cleaner layout.
+  - Kept item tags ("LOCATION INSPIRED", "GRAPHIC DESIGN", "100% COTTON") and dynamic item rendering based on URL parameters (`product-detail.html?id=...`).
+  - Built automated related item recommendation grid (`renderRecommendations()`).
+- **Admin Dashboard & Inventory Management System (`admin.html`)**
+  - Built full dark-themed admin dashboard (`admin.html`) with mobile-responsive table breakdowns.
+  - Created Stock Availability Manager tracking all 11 catalog products with dynamic toggle buttons (`toggleStock()`) updating status ("In Stock" / "Sold Out").
+  - Added automatic local storage array merging logic (`defaultInventory.map()`) ensuring new products automatically populate into `nt_inventory_v2` without requiring manual cache clearing.
+  - Created Submitted Enquiries table (`#enquiriesTableBody`) pulling submitted messages from local storage (`nt_enquiries`).
+- **Direct WhatsApp Messaging & Enquiries Integration (`enquiries.html`)**
+  - Added direct WhatsApp order and enquiry button (`https://wa.me/27821234567`) formatted in brand green (`#25D366`), with Font Awesome icon (`fa-whatsapp`), and pre-filled chat text.
+- **Admin Authentication Controls (`index.html` & `enquiries.html`)**
+  - Positioned floating shield trigger icon (`.admin-fab-btn`) executing `openAdmin()`.
+  - Added PIN authentication modal overlay (`#adminLoginModal`) requiring valid credentials (`admin` / `1234`) to redirect to `admin.html`.
 
 ## Changelog
  A full, dated record of every change made during the web side development — including what was added, changed, and removed on each day — is kept in [`CHANGELOG.md`](./CHANGELOG.md).
