@@ -198,7 +198,7 @@ function applyAllFilters() {
 
         let matches = true;
 
-        // 1. Category Filter (Supports Hoodies, Side Bags, Hats)
+        // Category Filter (Supports Hoodies, Side Bags, Hats)
         if (selectedCategory === 'hoodies' && !productId.startsWith('hoodie')) {
             matches = false;
         } else if (selectedCategory === 'sidebags' && !productId.startsWith('sidebag')) {
@@ -207,14 +207,14 @@ function applyAllFilters() {
             matches = false;
         }
 
-        // 2. Colour Filter
+        // Colour Filter
         if (selectedColor !== 'all') {
             if (!titleText.includes(selectedColor) && !descText.includes(selectedColor)) {
                 matches = false;
             }
         }
 
-        // 3. Availability Filter
+        // Availability Filter
         if (showOnlyAvailable && isSoldOut) {
             matches = false;
         }
