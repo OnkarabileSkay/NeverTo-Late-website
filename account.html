@@ -26,7 +26,7 @@
         </div>
 
         <div class="auth-card">
-            <!-- STEP 1: Email Request -->
+            <!--Email Request -->
             <div id="step-email" class="form-step active">
                 <h1>Sign in</h1>
                 <p class="subtitle">Sign in or create an account</p>
@@ -46,12 +46,13 @@
                 </form>
             </div>
 
-            <!-- STEP 2: OTP Verification -->
+            <!-- OTP Verification -->
             <div id="step-otp" class="form-step">
                 <h1>Verification Code</h1>
                 <p class="subtitle">We sent a 6-digit verification code to <br><strong id="display-email" class="highlight-email"></strong></p>
 
                 <form id="form-otp" class="email-form">
+                    <!-- Generating the required code space-->
                     <div class="otp-container">
                         <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required autofocus>
                         <input type="text" maxlength="1" class="otp-digit" pattern="\d*" required>
@@ -70,7 +71,7 @@
                 </form>
             </div>
 
-            <!-- STEP 3: Complete Personal Details -->
+            <!--Complete Personal Details -->
             <div id="step-details" class="form-step">
                 <h1 id="details-heading">Complete Profile</h1>
                 <p class="subtitle">Enter your personal information to finish setup</p>
@@ -112,7 +113,7 @@
                 </form>
             </div>
 
-            <!-- STEP 4: Success Message -->
+            <!--Success Message -->
             <div id="step-success" class="form-step text-center">
                 <i class="fa-solid fa-circle-check success-icon"></i>
                 <h1>Account Verified!</h1>
@@ -120,7 +121,7 @@
                 <a href="index.html" class="primary-btn-link">Return to Shop</a>
             </div>
 
-            <!-- STEP 5: Logged-In Profile Dashboard (ADDED THIS MISSING SECTION) -->
+            <!--Logged-In Profile Dashboard-->
             <div id="step-profile" class="form-step text-center">
                 <h1 id="profile-display-fullname">User Profile</h1>
                 <p id="profile-display-email" class="subtitle"></p>
