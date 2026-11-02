@@ -90,7 +90,7 @@ const catalogData = {
     }
 };
 
-// --- LIGHTBOX FUNCTIONS ---
+// --- LIGHTBOX ---
 function openLightbox(imgSrc, imgAlt) {
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("lightboxImage");
@@ -113,7 +113,7 @@ function closeLightbox() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Parse query parameter for product ID (e.g., product-detail.html?id=hoodie1)
+    // Parse query parameter for product ID (like, product-detail.html?id=hoodie1)
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get("id");
 
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 2. Populate main product details
+    // Populate main product details
     document.getElementById("detailProductName").textContent = product.name;
     document.getElementById("detailProductPrice").textContent = `R${product.price.toFixed(2)}`;
     document.getElementById("detailProductDesc").textContent = product.description;
@@ -137,20 +137,20 @@ document.addEventListener("DOMContentLoaded", () => {
     mainImg.src = product.image;
     mainImg.alt = product.name;
 
-    // 3. Attach click event and zoom trigger to the product detail image
+    // click feature and zoom to the product detail image
     mainImg.style.cursor = "zoom-in";
     mainImg.addEventListener("click", () => {
         openLightbox(product.image, product.name);
     });
 
-    // 4. Populate sticky purchase bar info
+    // Populate purchase bar info
     document.getElementById("stickyProductName").textContent = product.name;
     document.getElementById("stickyProductPrice").textContent = `R ${product.price.toFixed(2)}`;
     const stickyThumb = document.getElementById("stickyProductThumb");
     stickyThumb.src = product.image;
     stickyThumb.alt = product.name;
 
-    // 5. Handle "Add to Cart" functionality from sticky bar
+    // It handles "Add to Cart" functionality
     const addToCartBtn = document.getElementById("stickyAddToCartBtn");
     if (addToCartBtn) {
         addToCartBtn.addEventListener("click", () => {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. Render Recommendations Grid ("You May Also Like...")
+    // Recommendations Grid You May Also Like... section
     renderRecommendations(productId);
 });
 
