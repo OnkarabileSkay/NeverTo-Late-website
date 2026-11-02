@@ -1,0 +1,9 @@
+# Allow all standard search engine crawlers
+User-agent: *
+Allow: /
+
+# Disallow crawlers from accessing the admin dashboard page
+Disallow: /admin.html
+
+# Optional: Point search engines directly to your sitemap
+Sitemap: https://neverto-late.co.za/sitemap.xml
