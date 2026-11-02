@@ -40,8 +40,6 @@ Harvard-style reference list of sources used during the development of the Never
 
 - FreeCodeCamp, 2024. Build an E-Commerce Storefront with JavaScript and Local Storage. [video] Available at: https://www.youtube.com/watch?v=W6NZfCO5SIk [Accessed 30 October 2026].
 
-- Traversy Media, 2023. SEO Optimization for Beginners: Robots.txt and XML Sitemaps Explained. [video] Available at: https://www.youtube.com/watch?v=D0UnqGm_miA [Accessed 30 October 2026].
-
 - Net Ninja, 2024. Modern CSS Grid and Flexbox Tutorial for Web Developers. [video] Available at: https://www.youtube.com/watch?v=JJSoEo8JSWs [Accessed 30 October 2026].
 
 - Ref-n-Write Academic Software, 2025. *Harvard Referencing Style Made Easy!* [Video Online] Available at: <https://www.youtube.com/watch?v=OiM2iPPpb5A> [Accessed: 15 September 2026].
